@@ -25,7 +25,12 @@ def button_ok_action():
     except ValueError:
         result.set('NaN')
         return
-    rate: float = er.get_all_for_base(from_currency)['rates'].get(to_currency, 1)
+    try:
+        rate: float = er.get_all_for_base(from_currency)['rates'].get(to_currency, 1)
+    except Exception as e:
+        result.set('Con. Failed!')
+        print(e)
+        return
     converted = amount * rate
     result.set(round(converted, 2))
 

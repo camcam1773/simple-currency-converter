@@ -20,9 +20,6 @@ class Currency:
 
 def get_all_for_base(a: str) -> dict:
     local_url = Currency.base_url + '/latest?base=' + a
-    try:
-        with req.urlopen(local_url, timeout=10) as f:
-            json_data: dict = loads(f.read())
-    except Exception as e:
-        print(e, local_url)
+    with req.urlopen(local_url, timeout=10) as f:
+        json_data: dict = loads(f.read())
     return json_data
