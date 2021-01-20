@@ -3,7 +3,7 @@ import exchange_rate as er
 
 
 def close():
-    exit(0)
+    root.destroy()
 
 
 def change_dropdown1(*args):
@@ -46,7 +46,7 @@ root.option_add('*Font', '72')
 root.resizable(False, False)
 label1 = tk.Label(root, text='Currency Converter')
 field1 = tk.Entry(root, width=10)
-button_ok = tk.Button(root, text='OK', command=button_ok_action)
+button_ok = tk.Button(root, text='Convert', command=button_ok_action)
 button_exit = tk.Button(root, text='Close', command=close)
 dropdown_text1 = tk.StringVar(root)
 dropdown_text2 = tk.StringVar(root)
